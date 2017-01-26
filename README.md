@@ -1,4 +1,4 @@
 # Spring-Boot-Framework
 Getting Started with Spring Framework
 
-1. RESTful Web Service
+1. Simple RESTful Web Service
