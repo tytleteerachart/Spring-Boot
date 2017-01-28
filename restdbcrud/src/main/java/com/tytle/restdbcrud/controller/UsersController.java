@@ -30,4 +30,15 @@ public class UsersController {
                                    @RequestParam(value = "item_per_page", defaultValue = "10") int item_per_page) {
         return usersDAOImp.getAll(page, item_per_page);
     }
+
+    @RequestMapping("/add")
+    public String addUser(@RequestParam(value = "firstname", defaultValue = "1") String firstname,
+                          @RequestParam(value = "lastname", defaultValue = "1") String lastname) {
+        return usersDAOImp.add(new Users(firstname, lastname));
+    }
+
+    @RequestMapping("/delete")
+    public String deleteUser(@RequestParam(value = "id", defaultValue = "0") int id) {
+        return usersDAOImp.delete(id);
+    }
 }

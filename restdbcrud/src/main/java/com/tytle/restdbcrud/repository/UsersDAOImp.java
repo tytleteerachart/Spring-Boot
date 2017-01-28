@@ -41,7 +41,7 @@ public class UsersDAOImp implements UsersDAO {
 
         try {
             if (item_per_page > 0) {
-                int offset = item_per_page * (page-1);
+                int offset = item_per_page * (page - 1);
                 usersList = this.jdbcTemplate.query(SELECT_SQL, new Object[]{item_per_page, offset}, new UsersMapper());
             } else {
                 throw new UsersNotFoundException();
@@ -51,5 +51,45 @@ public class UsersDAOImp implements UsersDAO {
         }
 
         return usersList;
+    }
+
+    @Override
+    @Transactional
+    public String add(Users users) {
+        final String INSERT_SQL = "INSERT INTO users (firstname, lastname) VALUES (?, ?);";
+
+        try {
+            if (users.getFirstname().equals("1") || users.getLastname().equals("1")) {
+                return "Empty Firstname or Lastname";
+            } else {
+                if (this.jdbcTemplate.update(INSERT_SQL, users.getFirstname(), users.getLastname()) > 0) {
+                    return "Add user successfully: " + users;
+                } else {
+                    return "Something went wrong";
+                }
+            }
+        } catch (Exception ex) {
+            throw new UsersNotFoundException();
+        }
+    }
+
+    @Override
+    @Transactional
+    public String delete(int id) {
+        final String DELETE_SQL = "DELETE FROM users WHERE id=?;";
+
+        try {
+            if (id == 0) {
+                throw new Exception();
+            } else {
+                if (this.jdbcTemplate.update(DELETE_SQL, id) > 0) {
+                    return "Delete Sucessfully ID: " + id;
+                } else {
+                    throw new Exception();
+                }
+            }
+        } catch (Exception ex) {
+            return "Something went wrong";
+        }
     }
 }

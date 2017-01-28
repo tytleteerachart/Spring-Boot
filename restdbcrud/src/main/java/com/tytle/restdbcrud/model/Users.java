@@ -9,8 +9,7 @@ public class Users {
 
     }
 
-    public Users(int id, String firstname, String lastname) {
-        this.id = id;
+    public Users(String firstname, String lastname) {
         this.firstname = firstname;
         this.lastname = lastname;
     }
@@ -37,5 +36,10 @@ public class Users {
 
     public void setLastname(String lastname) {
         this.lastname = lastname;
+    }
+
+    @Override
+    public String toString() {
+        return "First Name: " + firstname + "\nLast Name: " + lastname;
     }
 }
