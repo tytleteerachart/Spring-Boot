@@ -1,6 +1,5 @@
 package com.tytle.restdb.model;
 
-
 public class Student {
 
     private String student_id, th_name, en_name;
