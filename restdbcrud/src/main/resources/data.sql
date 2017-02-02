@@ -1,0 +1,1 @@
+INSERT INTO USERS (firstname, lastname) VALUES ('Lionel', 'Messi'), ('Andres', 'Iniesta'), ('Luis', 'Suarez'), ('Neymar', 'Jr');

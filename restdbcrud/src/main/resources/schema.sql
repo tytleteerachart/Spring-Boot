@@ -7,5 +7,3 @@ CREATE TABLE USERS
     lastname varchar(100) NOT NULL,
     PRIMARY KEY (id)
 );
-
-INSERT INTO USERS (firstname, lastname) VALUES ('Lionel', 'Messi'), ('Andres', 'Iniesta'), ('Luis', 'Suarez'), ('Neymar', 'Jr');
